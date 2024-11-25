@@ -4,4 +4,8 @@ describe("String Calculator", () => {
     test("Should return 0 for empty string", () => {
         expect(addNumbers("")).toBe(0);
     })
+
+    test("Should return number for string containing a single number", () => {
+        expect(addNumbers("1")).toBe(1);
+    })
 })
