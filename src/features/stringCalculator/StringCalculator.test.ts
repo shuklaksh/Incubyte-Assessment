@@ -18,6 +18,10 @@ describe("String Calculator", () => {
     })
 
     test("Should return sum by also handling line seperation", () => {
-        expect(addNumbers('1\n2,3')).toBe(6);
+        expect(addNumbers("1\n2,3")).toBe(6);
+    })
+
+    test("Should return sum by handling custom delimiters for number seperation", () => {
+        expect(addNumbers("//;\n1;2")).toBe(3)
     })
 })
