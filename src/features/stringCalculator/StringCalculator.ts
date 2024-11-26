@@ -10,7 +10,16 @@ const addNumbers = (numbers: string): number => {
           delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
           numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
         }
+        else {
+            const delimiterMatch = numbers.match(/^\/\/(.+)\n/);
+            if (delimiterMatch) {
+                const customDelimiter = delimiterMatch[1];
+                delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
+                numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
+              }
+        }
     }
+
 
     const negativeNumbers : number[] = [];
 
