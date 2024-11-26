@@ -40,7 +40,12 @@ describe("String Calculator", () => {
     test("Should return sum for custom delimiter of any length", () => {
         expect(addNumbers("//[***]\n1***2***3")).toBe(6);
     });
+
     test("Should return sum for multiple custom delimiter of length 1", () => {
         expect(addNumbers("//[*][%]\n1*2%3")).toBe(6);
+    });
+
+    test("Should return sum for multiple custom delimiter of any length", () => {
+        expect(addNumbers("//[**][%]\n1**2%3")).toBe(6);
     });
 })
