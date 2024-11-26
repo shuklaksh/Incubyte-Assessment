@@ -24,4 +24,8 @@ describe("String Calculator", () => {
     test("Should return sum by handling custom delimiters for number seperation", () => {
         expect(addNumbers("//;\n1;2")).toBe(3)
     })
+
+    test("megativess", () => {
+        expect(() => addNumbers("1,2,3,-5")).toThrow("negatives not allowed: -5");
+    })
 })

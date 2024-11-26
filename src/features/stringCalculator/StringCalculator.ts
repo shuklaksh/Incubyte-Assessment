@@ -1,6 +1,8 @@
 const addNumbers = (numbers: string): number => {
+    if(numbers === "") return 0;
     let delimiterPattern: RegExp = /[\n,]+/;
     let numbersToProcess = numbers;
+
     if (numbers.startsWith("//")) {
         const delimiterMatch = numbers.match(/^\/\/(.+)\n/); // Match the custom delimiter syntax
         if (delimiterMatch) {
@@ -8,10 +10,26 @@ const addNumbers = (numbers: string): number => {
           delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
           numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
         }
-      }
-      return numbersToProcess
-        .split(delimiterPattern)
-        .reduce((sum, num) => sum + Number(num), 0);
+    }
+
+    const negativeNumbers : number[] = [];
+
+    const sum = numbersToProcess
+    .split(delimiterPattern)
+    .reduce((sum, num) => {
+        const number = Number(num);
+        if (number < 0) {
+            negativeNumbers.push(number);
+            return sum;
+        }
+        return sum + number;
+    }, 0);
+
+        if(negativeNumbers.length) {
+            throw new Error(`negatives not allowed: ${negativeNumbers.join(", ")}`);
+        }
+        else return sum;
+
 }
 
   
