@@ -32,4 +32,12 @@ describe("String Calculator", () => {
     test("Should throw error for invalid string", () => {
         expect(() => addNumbers("1,2,ab")).toThrow("Inavlid String");
     })
+
+    test("Should ignore number greater than 1000 in string", () => {
+        expect(addNumbers("1,2,1001")).toBe(3);
+    })
+
+    test("Should return sum for custom delimiter of any length", () => {
+        expect(addNumbers("//[***]\n1***2***3")).toBe(6);
+    });
 })
