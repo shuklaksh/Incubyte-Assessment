@@ -1,51 +1,49 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
 # Incubyte-Assessment
+
+This is a React-based application for the Incubyte assessment, utilizing Vite for the build process, TypeScript for static typing, TailwindCSS for styling, and Jest for testing.
+
+Deployed Link - [here](https://incubyte-assessment-dun.vercel.app/)
+
+## Prerequisites
+
+Make sure you have the following installed on your local machine:
+
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/)
+
+## Getting Started
+
+Follow these steps to get the project up and running on your local machine:
+
+### 1. Clone the Repository
+
+Clone the repository to your local machine using Git:
+
+```bash
+git clone https://github.com/your-username/incubyte-assessment.git
+```
+
+### 2. Install Dependencies
+
+Navigate to the project folder and install the required dependencies:
+
+```bash
+cd incubyte-assessment
+npm install
+```
+This will install all the necessary dependencies listed in the package.json file, including development dependencies for Vite, TypeScript, ESLint, Jest, and more.
+
+### 3. Running the Application
+
+To run the development server:
+
+```bash
+npm run dev
+```
+
+### 4. Running Tests
+
+To run the tests for the application:
+```bash
+npm run test
+```
