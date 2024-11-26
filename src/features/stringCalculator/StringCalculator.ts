@@ -18,6 +18,7 @@ const addNumbers = (numbers: string): number => {
     .split(delimiterPattern)
     .reduce((sum, num) => {
         const number = Number(num);
+        if(Number.isNaN(number)) throw new Error('Inavlid String ')
         if (number < 0) {
             negativeNumbers.push(number);
             return sum;

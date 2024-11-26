@@ -15,8 +15,9 @@ function App() {
       const maxHeight = 5 * parseFloat(getComputedStyle(textareaRef.current).lineHeight || "20px");
       textareaRef.current.style.height = `${Math.min(scrollHeight, maxHeight)}px`;
     }
-
   };
+
+  
 
   const handleClick = () => {
     try {

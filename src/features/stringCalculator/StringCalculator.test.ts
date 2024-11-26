@@ -28,4 +28,8 @@ describe("String Calculator", () => {
     test("Should throw error for negative numbers", () => {
         expect(() => addNumbers("1,2,3,-5,-9,-8")).toThrow("negatives not allowed: -5, -9, -8");
     })
+
+    test("Should throw error for invalid string", () => {
+        expect(() => addNumbers("1,2,ab")).toThrow("Inavlid String");
+    })
 })
