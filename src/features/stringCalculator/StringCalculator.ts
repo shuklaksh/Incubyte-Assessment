@@ -4,20 +4,12 @@ const addNumbers = (numbers: string): number => {
     let numbersToProcess = numbers;
 
     if (numbers.startsWith("//")) {
-        const delimiterMatch = numbers.match(/^\/\/\[(.+)]\n/); // Match the custom delimiter syntax
+        const delimiterMatch = numbers.match(/^\/\/\[(.+)]\n/) ? numbers.match(/^\/\/\[(.+)]\n/) : numbers.match(/^\/\/(.+)\n/)// Match the custom delimiter syntax
         if (delimiterMatch) {
-          const customDelimiter = delimiterMatch[1];
-          delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
-          numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
-        }
-        else {
-            const delimiterMatch = numbers.match(/^\/\/(.+)\n/);
-            if (delimiterMatch) {
-                const customDelimiter = delimiterMatch[1];
-                delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
-                numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
-              }
-        }
+            const customDelimiter = delimiterMatch[1];
+            delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
+            numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
+          }
     }
 
 
