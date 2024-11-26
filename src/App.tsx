@@ -4,11 +4,9 @@ import addNumbers from "./features/stringCalculator/StringCalculator";
 
 function App() {
   const [input, setInput] = useState('');
-  const [error, setError] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
-    setError(false);
   };
 
   const handleClick = () => {
@@ -33,9 +31,7 @@ function App() {
             value={input}
             onChange={handleInputChange}
             placeholder="Enter numbers (e.g., 1, 2, 3)"
-            className={`w-full px-3 py-2 sm:px-4 sm:py-2 mb-4 text-sm sm:text-lg text-white rounded-lg hover:bg-white-600 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 ${
-              error ? 'border-red-500 animate-shake' : 'border-gray-300'
-            }`}
+            className={`w-full px-3 py-2 sm:px-4 sm:py-2 mb-4 text-sm sm:text-lg text-white rounded-lg hover:bg-white-600 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2`}
           />
           <button
             onClick={handleClick}
