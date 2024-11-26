@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import addNumbers from "./features/stringCalculator/StringCalculator";
 
 function App() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -12,19 +12,23 @@ function App() {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto"; // Reset height to recalculate
       const scrollHeight = textareaRef.current.scrollHeight;
-      const maxHeight = 5 * parseFloat(getComputedStyle(textareaRef.current).lineHeight || "20px");
-      textareaRef.current.style.height = `${Math.min(scrollHeight, maxHeight)}px`;
+      const maxHeight =
+        5 *
+        parseFloat(getComputedStyle(textareaRef.current).lineHeight || "20px");
+      textareaRef.current.style.height = `${Math.min(
+        scrollHeight,
+        maxHeight
+      )}px`;
     }
   };
-
-  
 
   const handleClick = () => {
     try {
       const result = addNumbers(input);
       toast.success(`Sum of the numbers is ${result}`);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "An unknown error occurred";
+      const errorMessage =
+        err instanceof Error ? err.message : "An unknown error occurred";
       toast.error(errorMessage);
     }
   };
