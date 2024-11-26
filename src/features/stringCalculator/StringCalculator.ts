@@ -6,10 +6,12 @@ const addNumbers = (numbers: string): number => {
     if (numbers.startsWith("//")) {
         const delimiterMatch = numbers.match(/^\/\/\[(.+)]\n/) ? numbers.match(/^\/\/\[(.+)]\n/) : numbers.match(/^\/\/(.+)\n/)// Match the custom delimiter syntax
         if (delimiterMatch) {
-            const customDelimiter = delimiterMatch[1];
-            delimiterPattern = new RegExp(`[${customDelimiter}\n,]+`); // Include newline and comma by default
+            const customDelimiters = delimiterMatch[1]
+                .split('][')
+                .map((delimiter) => `\\${delimiter}`); // Escape the delimiters to handle special characters
+            delimiterPattern = new RegExp(`[${customDelimiters.join('')}\\n,]+`); // Combine all delimiters with newlines and commas
             numbersToProcess = numbers.substring(delimiterMatch[0].length); // Strip the delimiter line
-          }
+        }
     }
 
 
